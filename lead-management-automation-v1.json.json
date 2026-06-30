@@ -1,0 +1,575 @@
+{
+  "name": "Telegram Lead Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "chatId": "6646181750",
+        "text": "=🔥 HIGH PRIORITY LEAD\n\n👤 {{$json[\"Full Name\"]}}\n📧 {{$json[\"Email Address\"]}}\n💰 Budget: {{$json[\"Estimated Budget\"]}}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "f4bfe0ff-e78d-4684-b1b3-8c63e157bd84",
+      "name": "Send a text message",
+      "webhookId": "d47da06b-043d-4edc-929f-3ed96332074a",
+      "credentials": {
+        "telegramApi": {
+          "id": "o7YcL0q3yOT8hHxj",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "886f7f87-b093-4abe-bb9d-492653401668",
+              "leftValue": "={{ $json[\"Estimated Budget\"] }}",
+              "rightValue": "$5000+",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "d1a4ec2c-a30c-46af-9853-859c7daa9919",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I",
+          "mode": "list",
+          "cachedResultName": "Untitled form (Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1530886704,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I/edit#gid=1530886704"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $('Google Sheets Trigger').item.json.Timestamp }}",
+            "Full Name": "={{ $('Google Sheets Trigger').item.json['Full Name'] }}",
+            "Email Address": "={{ $('Google Sheets Trigger').item.json['Email Address'] }}",
+            "Phone Number": "={{ $('Google Sheets Trigger').item.json['Phone Number'] }}",
+            "Company Name": "={{ $('Google Sheets Trigger').item.json['Company Name'] }}",
+            "Which service are you interested in?": "={{ $('Google Sheets Trigger').item.json['Which service are you interested in?'] }}",
+            "Estimated Budget": "={{ $('Google Sheets Trigger').item.json['Estimated Budget'] }}",
+            "Tell us about your project": "={{ $('Google Sheets Trigger').item.json['Tell us about your project'] }}",
+            "Lead Status": "New",
+            "Priority": "High"
+          },
+          "matchingColumns": [
+            "Timestamp"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Which service are you interested in?",
+              "displayName": "Which service are you interested in?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estimated Budget",
+              "displayName": "Estimated Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tell us about your project",
+              "displayName": "Tell us about your project",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Status",
+              "displayName": "Lead Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        656,
+        -16
+      ],
+      "id": "77775896-dee2-4fcd-90bd-62596b654b2f",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ebjKERCT8wEc5qRV",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I",
+          "mode": "list",
+          "cachedResultName": "Untitled form (Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1530886704,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I/edit#gid=1530886704"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $json.Timestamp }}",
+            "Full Name": "={{ $json['Full Name'] }}",
+            "Email Address": "={{ $json['Email Address'] }}",
+            "Phone Number": "={{ $json['Phone Number'] }}",
+            "Company Name": "={{ $json['Company Name'] }}",
+            "Which service are you interested in?": "={{ $json['Which service are you interested in?'] }}",
+            "Estimated Budget": "={{ $json['Estimated Budget'] }}",
+            "Tell us about your project": "={{ $json['Tell us about your project'] }}",
+            "Lead Status": "New",
+            "Priority": "Normal"
+          },
+          "matchingColumns": [
+            "Timestamp"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Which service are you interested in?",
+              "displayName": "Which service are you interested in?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Estimated Budget",
+              "displayName": "Estimated Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tell us about your project",
+              "displayName": "Tell us about your project",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead Status",
+              "displayName": "Lead Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Priority",
+              "displayName": "Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        624,
+        112
+      ],
+      "id": "2739fba2-2c35-4fe7-9023-8bfb5e0018c8",
+      "name": "Update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ebjKERCT8wEc5qRV",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "6646181750",
+        "text": "=📩 New Lead\n\n👤 {{$json[\"Full Name\"]}}\n📧 {{$json[\"Email Address\"]}}\n💰 Budget: {{$json[\"Estimated Budget\"]}}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        768,
+        160
+      ],
+      "id": "e1d38d2f-8d89-4cd9-b909-9b2226415df0",
+      "name": "Send a text message1",
+      "webhookId": "d47da06b-043d-4edc-929f-3ed96332074a",
+      "credentials": {
+        "telegramApi": {
+          "id": "o7YcL0q3yOT8hHxj",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "tasmiulpbn@gmail.com",
+        "subject": "🔥 High Priority Lead Received",
+        "message": "=<!DOCTYPE html> <html>  <body style=\"font-family:Arial,sans-serif;background:#f4f6f8;padding:20px;\">  <div style=\"max-width:650px;margin:auto;background:white;border-radius:12px;padding:25px;border:1px solid #ddd;\">  <h2 style=\"color:#d32f2f;\"> 🔥 High Priority Lead Received </h2>  <hr>  <table style=\"width:100%;font-size:15px;\">  <tr> <td><b>👤 Full Name</b></td> <td>{{ $json[\"Full Name\"] }}</td> </tr>  <tr> <td><b>📧 Email</b></td> <td>{{ $json[\"Email Address\"] }}</td> </tr>  <tr> <td><b>📱 Phone</b></td> <td>{{ $json[\"Phone Number\"] }}</td> </tr>  <tr> <td><b>🏢 Company</b></td> <td>{{ $json[\"Company Name\"] }}</td> </tr>  <tr> <td><b>🛠 Service</b></td> <td>{{ $json[\"Which service are you interested in?\"] }}</td> </tr>  <tr> <td><b>💰 Budget</b></td> <td>{{ $json[\"Estimated Budget\"] }}</td> </tr>  <tr> <td><b>📌 Lead Status</b></td> <td>{{ $json[\"Lead Status\"] }}</td> </tr>  <tr> <td><b>⭐ Priority</b></td> <td>{{ $json[\"Priority\"] }}</td> </tr>  </table>  <hr>  <h3>📝 Project Description</h3>  <div style=\"background:#f8f9fa;padding:15px;border-radius:8px;\"> {{ $json[\"Tell us about your project\"] }} </div>  <br>  <div style=\"background:#fff3cd;padding:15px;border-radius:8px;border-left:5px solid orange;\">  <b>⚡ Action Required</b>  <p> This lead has been marked as <b>High Priority</b>. Please contact the client as soon as possible. </p>  </div>  <br>  <p style=\"font-size:12px;color:#888;\"> Generated automatically by n8n Lead Automation </p>  </div>  </body> </html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        864,
+        -16
+      ],
+      "id": "e29e275e-a914-4f8d-982e-705a77be6868",
+      "name": "Send a message",
+      "webhookId": "d7fa7bfb-5f82-4744-bdb8-f31eef46286d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "lUzsESMUzieASZo3",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I",
+          "mode": "list",
+          "cachedResultName": "Untitled form (Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1530886704,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/14TPkZVBFwO7o1cT4sqPdR8kMnPW2cBQ7grbGRJxty8I/edit#gid=1530886704"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "294742f6-95a8-401b-bfd3-b23052cb6020",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "tPc5P0K73gLv770q",
+          "name": "Google Sheets Trigger account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [items[items.length - 1]];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "10d522b2-f379-438f-a823-5a33058e5cc5",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        []
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "2420a05f-4ff3-4ae7-a212-56fd0ed557b8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "315c758145e3fb906c58c1c24bfc7eea9bdc5405d909ee3ee84feb25a0727826"
+  },
+  "nodeGroups": [],
+  "id": "rOKxfDbCt7Egerwb",
+  "tags": []
+}
