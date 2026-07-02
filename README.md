@@ -1,68 +1,45 @@
-# 🚀 Lead Management Automation with n8n
+# Lead Management Automation
 
-## 📌 Project Overview
+## Overview
 
-This project automates lead management using n8n.
+This project automates lead notifications using n8n.
 
-Whenever a new Google Form response is submitted, the workflow automatically:
+Whenever a new lead is added to Google Sheets, the workflow automatically:
 
-- Collects the lead from Google Forms
-- Stores the data in Google Sheets
-- Checks the Estimated Budget
-- Assigns High or Normal Priority
-- Sends an Email Notification
-- Sends a Telegram Notification
-- Updates Lead Status in Google Sheets
+- Checks lead conditions
+- Sends Telegram notification
+- Sends Gmail notification
+- Organizes lead processing automatically
 
 ---
 
-## ✨ Features
+## Workflow
 
-- Google Forms Integration
-- Google Sheets Integration
-- Gmail Notification
-- Telegram Notification
-- Automatic Lead Prioritization
-- Status Update
-- No-Code Workflow
+Google Sheets
+↓
+
+IF Condition
+↓
+
+Telegram Notification
+
+↓
+
+Gmail Notification
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - n8n
-- Google Forms
 - Google Sheets
 - Gmail
-- Telegram Bot API
+- Telegram Bot
 
 ---
 
-## 📂 Workflow
+## Author
 
-Google Form
-⬇
-Google Sheets
-⬇
-Budget Check
-⬇
-High Priority → Gmail + Telegram
-⬇
-Normal Priority → Telegram
-⬇
-Update Lead Status
+Tasmiul
 
----
-
-## 📁 Repository Files
-
-- workflow.json
-- README.md
-
----
-
-## 👨‍💻 Author
-
-Tasmiul Pbn
-
-Learning AI Automation, n8n, Custom GPT and AI Chatbots.
+AI Automation Freelancer
