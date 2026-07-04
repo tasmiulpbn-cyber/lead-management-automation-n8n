@@ -1,45 +1,123 @@
-# Lead Management Automation
+# 🚀 Lead Management Automation with n8n
 
-## Overview
+An automated Lead Management Workflow built with **n8n**, **Google Sheets**, **Gmail**, and **Telegram**.
 
-This project automates lead notifications using n8n.
-
-Whenever a new lead is added to Google Sheets, the workflow automatically:
-
-- Checks lead conditions
-- Sends Telegram notification
-- Sends Gmail notification
-- Organizes lead processing automatically
+This workflow automatically monitors new leads submitted through Google Forms, evaluates their priority based on the estimated budget, updates Google Sheets, and instantly sends email and Telegram notifications for high-priority leads.
 
 ---
+
+# 📌 Features
+
+- ✅ Automatically detects new leads from Google Sheets
+- ✅ Processes only the latest submitted lead
+- ✅ Checks lead priority using IF conditions
+- ✅ Updates Lead Status and Priority automatically
+- ✅ Sends a beautifully formatted HTML email
+- ✅ Sends instant Telegram notifications
+- ✅ Fully automated with n8n
+
+---
+
+# ⚙️ Workflow
+
+```text
+Google Form
+      │
+      ▼
+Google Sheets
+      │
+      ▼
+Google Sheets Trigger
+      │
+      ▼
+Get Latest Lead
+      │
+      ▼
+High Priority Check
+      │
+ ┌────┴────┐
+ │         │
+True      False
+ │         │
+ ▼         ▼
+Update Sheet   Update Sheet
+ │
+ ▼
+Gmail Alert
+ │
+ ▼
+Telegram Alert
+```
+
+---
+
+# 🛠 Tech Stack
+
+- n8n
+- Google Forms
+- Google Sheets
+- Gmail API
+- Telegram Bot API
+- JavaScript
+
+---
+
+# 📷 Screenshots
 
 ## Workflow
 
-Google Sheets
-↓
+![Workflow](assets/workflow-overview.jpg)
 
-IF Condition
-↓
+## Gmail Notification
 
-Telegram Notification
+![Gmail](assets/email-demo.jpg)
 
-↓
+## Telegram Notification
 
-Gmail Notification
+![Telegram](assets/telegram-demo.jpg)
 
 ---
 
-## Technologies Used
+# 📂 Project Structure
 
-- n8n
-- Google Sheets
-- Gmail
-- Telegram Bot
+```text
+lead-management-automation-n8n/
+│
+├── assets/
+│   ├── workflow-overview.jpg
+│   ├── email-demo.jpg
+│   └── telegram-demo.jpg
+│
+├── docs/
+├── workflow.json
+├── README.md
+└── LICENSE
+```
 
 ---
 
-## Author
+# 🚀 Use Case
 
-Tasmiul
+This automation is ideal for:
+
+- Lead Management
+- Sales Teams
+- Digital Agencies
+- AI Automation Agencies
+- CRM Automation
+- Business Process Automation
+
+---
+
+# 👨‍💻 Author
+
+**Tasmiul**
 
 AI Automation Freelancer
+
+GitHub:
+https://github.com/tasmiulpbn-cyber
+
+---
+
+⭐ If you found this project useful, consider giving it a star.S
