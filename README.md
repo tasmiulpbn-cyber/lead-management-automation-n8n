@@ -121,3 +121,18 @@ https://github.com/tasmiulpbn-cyber
 ---
 
 ⭐ If you found this project useful, consider giving it a star.S
+## Workflow Overview
+
+![Workflow](assets/workflow-overview.png)
+
+---
+
+## Email Notification
+
+![Email](assets/email-demo.png)
+
+---
+
+## Telegram Notification
+
+![Telegram](assets/telegram-demo.png)
